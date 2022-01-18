@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	  <Version>1.0.1</Version>
+	  <Authors>musictopia</Authors>
+	  <Description>MVVM Helpers for blazor allowing for opening/closing screens in caliburn micro's style</Description>
+	  <PublishUrl>https://github.com/musictopia2/BlazorMVVMHelpersLibrary</PublishUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonBasicLibraries" Version="5.0.7" />
+    <PackageReference Include="EventAggregatorGenerator" Version="1.0.1" PrivateAssets="all" />
+    <PackageReference Include="MessengingHelpers" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1" />
+    <PackageReference Include="MVVMFramework" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
