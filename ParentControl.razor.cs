@@ -5,11 +5,11 @@ public partial class ParentControl<VM> : IBlazorParent<VM>, IDisposable
     private readonly IEventAggregator _aggregator;
     public ParentControl()
     {
-        if (gg.Aggregator is null)
+        if (gg1.Aggregator is null)
         {
-            gg.SetUpDefaultAggregators(); //this will set up defaults
+            gg1.SetUpDefaultAggregators(); //this will set up defaults
         }
-        _aggregator = gg.Aggregator!;
+        _aggregator = gg1.Aggregator!;
         Subscribe();
     }
     public VM? DataContext { get; set; }
@@ -24,23 +24,17 @@ public partial class ParentControl<VM> : IBlazorParent<VM>, IDisposable
     void IHandle<OpenEventModel>.Handle(OpenEventModel message)
     {
         DataContext = message.ViewModelUsed as VM;
-        InvokeAsync(() =>
-        {
-            StateHasChanged();
-        });
+        InvokeAsync(StateHasChanged);
     }
     void IHandle<CloseEventModel>.Handle(CloseEventModel message)
     {
         DataContext = null;
-        InvokeAsync(() =>
-        {
-            StateHasChanged();
-        });
+        InvokeAsync(StateHasChanged);
     }
 #pragma warning disable CA1816 // Dispose methods should call SuppressFinalize
     public void Dispose()
 #pragma warning restore CA1816 // Dispose methods should call SuppressFinalize
     {
-        Unsubscribe(); //try this way (?)
+        Unsubscribe();
     }
 }
