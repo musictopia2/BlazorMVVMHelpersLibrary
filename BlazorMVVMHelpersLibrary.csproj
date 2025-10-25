@@ -8,15 +8,20 @@
     <Authors>musictopia</Authors>
     <Description>MVVM Helpers for blazor allowing for opening/closing screens in caliburn micro's style</Description>
     <PublishUrl>https://github.com/musictopia2/BlazorMVVMHelpersLibrary</PublishUrl>
+    <RunPostBuildAppCondition Condition="'$(Configuration)' == 'Release'">true</RunPostBuildAppCondition>
+    <FeedType>Public</FeedType>
   </PropertyGroup>
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommonBasicLibraries" Version="9.0.1" />
-    <PackageReference Include="EventAggregatorGenerator" Version="1.0.13" PrivateAssets="all" />
-    <PackageReference Include="MessengingHelpers" Version="9.0.1" />
+    <PackageReference Include="CommonBasicLibraries" Version="9.0.78" />
+    <PackageReference Include="EventAggregatorGenerator" Version="1.0.14" PrivateAssets="all" />
+    <PackageReference Include="MessengingHelpers" Version="9.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
-    <PackageReference Include="MVVMFramework" Version="9.0.1" />
+    <PackageReference Include="MVVMFramework" Version="9.0.2" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="C:\VS\OneNet\Apps\CommandLines\PostBuildPackageHandler\bin\Release\net9.0\PostBuildPackageHandler.exe $(ProjectName) $(ProjectDir) $(ProjectFileName) $(TargetDir)" Condition="'$(Configuration)' == 'Release' and '$(RunPostBuildAppCondition)' == 'true'" />
+  </Target>
 </Project>
