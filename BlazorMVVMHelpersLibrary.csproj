@@ -15,11 +15,11 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommonBasicLibraries" Version="10.0.1" />
-    <PackageReference Include="EventAggregatorGenerator" Version="1.0.14" PrivateAssets="all" />
-    <PackageReference Include="MessengingHelpers" Version="10.0.1" />
+    <PackageReference Include="CommonBasicLibraries" Version="10.0.13" />
+    <PackageReference Include="EventAggregatorGenerator" Version="1.0.18" PrivateAssets="all" />
+    <PackageReference Include="MessengingHelpers" Version="10.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.0" />
-    <PackageReference Include="MVVMFramework" Version="10.0.1" />
+    <PackageReference Include="MVVMFramework" Version="10.0.7" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="C:\VS\OneNet\Apps\CommandLines\PostBuildPackageHandler\bin\Release\net10.0\PostBuildPackageHandler.exe $(ProjectName) $(ProjectDir) $(ProjectFileName) $(TargetDir)" Condition="'$(Configuration)' == 'Release' and '$(RunPostBuildAppCondition)' == 'true'" />
